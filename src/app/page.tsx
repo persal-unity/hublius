@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { ModeToggle } from '@/components/ui/mode-theme';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
           height={38}
           priority
         />
+        <ModeToggle />
         <ol className='list-inside list-decimal text-center font-[family-name:var(--font-geist-mono)] text-sm sm:text-left'>
           <li className='mb-2'>
             Get started by editing{' '}
