@@ -9,6 +9,16 @@
     "lint": "next lint",
     "prepare": "husky"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint",
+    "*.ts": "eslint",
+    "*.tsx": "eslint"
+  },
   "dependencies": {
     "next": "15.1.6",
     "react": "^19.0.0",
@@ -22,6 +32,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "postcss": "^8",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
