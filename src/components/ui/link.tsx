@@ -1,10 +1,13 @@
 import { FC, PropsWithChildren, Ref } from 'react';
-import NextLink, { LinkProps as NextLinkProps } from 'next/link';
+import { Link as NextLink } from '@/i18n/routing';
 import { Button } from './button';
 import { ButtonProps } from './button';
 
-type LinkProps = NextLinkProps &
-  Pick<ButtonProps, 'variant' | 'size'> & { ref?: Ref<HTMLAnchorElement> };
+type LinkProps = Pick<ButtonProps, 'variant' | 'size'> & {
+  ref?: Ref<HTMLAnchorElement>;
+} & {
+  href: string;
+};
 
 const Link: FC<PropsWithChildren<LinkProps>> = ({
   variant = 'link',

@@ -1,0 +1,8 @@
+{
+  "HomePage": {
+    "title": "Здравствуй мир!"
+  },
+  "LocaleSwitcher": {
+    "locale": "{locale, select, ua {Українська} ru {Русский} en {English} other {Unknown}}"
+  }
+}
