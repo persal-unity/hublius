@@ -4,7 +4,7 @@ export const Logo = () => {
   return (
     <Link
       href="/"
-      className="flex cursor-pointer items-center gap-2 px-0 font-black text-cyan-700 transition-colors hover:text-cyan-900"
+      className="flex cursor-pointer items-center gap-2 px-0 font-black text-cyan-700 transition-colors duration-300 hover:text-cyan-900"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

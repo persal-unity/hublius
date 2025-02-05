@@ -1,5 +1,5 @@
-import { LoginForm } from '@/components/authenticate/login-form';
+import { Authenticate } from '@/components/authenticate/authenticate';
 
-export default function Login() {
-  return <LoginForm />;
+export default function Auth() {
+  return <Authenticate />;
 }
