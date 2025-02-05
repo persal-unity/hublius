@@ -20,7 +20,7 @@ export function AccountAction() {
     return (
       <Link href="/authenticate" variant="default">
         <User />
-        <span>{t('logIn')}</span>
+        <span>{t('signin')}</span>
       </Link>
     );
   }

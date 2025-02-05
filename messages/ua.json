@@ -10,7 +10,33 @@
     "title": "Тема",
     "theme": "{theme, select, light {Світла} dark {Темна} system {Системна} other {Unknown}}"
   },
+  "Authenticate": {
+    "orContinueWith": "Або продовжіть за допомогою",
+    "sigin": {
+      "description": "Введіть вашу електронну пошту нижче, щоб увійти в ваш акаунт",
+      "action": "Увійти",
+      "forgotPassword": "Забули пароль?",
+      "question": "Немає акаунта?"
+    },
+    "signup": {
+      "title": "Створити акаунт",
+      "description": "Введіть вашу електронну пошту нижче, щоб створити акаунт",
+      "action": "Створити акаунт",
+      "question": "Вже є акаунт?"
+    },
+    "resetPassword": {
+      "title": "Скидання пароля",
+      "description": "Введіть свій email нижче, щоб скинути пароль",
+      "action": "Скинути пароль",
+      "loadingAction": "Скидання пароля"
+    }
+  },
   "Common": {
-    "logIn": "Увійти"
+    "login": "Авторизація",
+    "signin": "Увійти",
+    "signup": "Зареєструватися",
+    "email": "Електронна пошта",
+    "password": "Пароль",
+    "goBack": "Повернутися"
   }
 }

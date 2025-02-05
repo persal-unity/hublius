@@ -10,7 +10,33 @@
     "title": "Тема",
     "theme": "{theme, select, light {Светлая} dark {Тёмная} system {Системная} other {Unknown}}"
   },
+  "Authenticate": {
+    "orContinueWith": "Или продолжите с помощью",
+    "sigin": {
+      "description": "Введите ваш email ниже, чтобы войти в ваш аккаунт",
+      "action": "Войти",
+      "forgotPassword": "Забыли пароль?",
+      "question": "Нет аккаунта?"
+    },
+    "signup": {
+      "title": "Создать аккаунт",
+      "description": "Введите ваш email ниже, чтобы создать аккаунт",
+      "action": "Создать аккаунт",
+      "question": "Уже есть аккаунт?"
+    },
+    "resetPassword": {
+      "title": "Сброс пароля",
+      "description": "Введите свой email ниже, чтобы сбросить пароль",
+      "action": "Сбросить пароль",
+      "loadingAction": "Сброс пароля"
+    }
+  },
   "Common": {
-    "logIn": "Войти"
+    "login": "Авторизация",
+    "signin": "Войти",
+    "signup": "Зарегистрироваться",
+    "email": "Почта",
+    "password": "Пароль",
+    "goBack": "Назад"
   }
 }

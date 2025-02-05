@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 import { motion } from 'motion/react';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -18,6 +19,9 @@ interface SignUpProps {
 }
 
 export function SignUp({ setStep }: SignUpProps) {
+  const tAuth = useTranslations('Authenticate');
+  const tCommon = useTranslations('Common');
+
   return (
     <motion.div
       className="flex w-full max-w-sm flex-col gap-6"
@@ -28,10 +32,8 @@ export function SignUp({ setStep }: SignUpProps) {
     >
       <Card>
         <CardHeader>
-          <CardTitle className="text-2xl">Create an account</CardTitle>
-          <CardDescription>
-            Enter your email below to create your account
-          </CardDescription>
+          <CardTitle className="text-2xl">{tAuth('signup.title')}</CardTitle>
+          <CardDescription>{tAuth('signup.description')}</CardDescription>
         </CardHeader>
         <CardContent>
           <Button variant="outline" className="w-full">
@@ -45,7 +47,7 @@ export function SignUp({ setStep }: SignUpProps) {
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-card px-2 text-muted-foreground">
-                Or continue with
+                {tAuth('orContinueWith')}
               </span>
             </div>
           </div>
@@ -53,7 +55,7 @@ export function SignUp({ setStep }: SignUpProps) {
           <form>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">{tCommon('email')}</Label>
                 <Input
                   id="email"
                   type="email"
@@ -62,23 +64,23 @@ export function SignUp({ setStep }: SignUpProps) {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">{tCommon('password')}</Label>
                 <Input id="password" type="password" required />
               </div>
               <Button type="submit" className="w-full">
-                Create account
+                {tAuth('signup.action')}
               </Button>
             </div>
           </form>
 
           <div className="mt-4 text-center text-sm">
-            Already have an account?{' '}
+            {tAuth('signup.question')}{' '}
             <Button
               variant="link"
               className="p-0 underline underline-offset-4 hover:text-cyan-600"
               onClick={() => setStep('signin')}
             >
-              Sign in
+              {tCommon('signin')}
             </Button>
           </div>
         </CardContent>

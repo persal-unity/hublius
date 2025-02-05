@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 import { motion } from 'motion/react';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -18,6 +19,8 @@ interface ResetPasswordProps {
 }
 
 export function ResetPassword({ setStep }: ResetPasswordProps) {
+  const tAuth = useTranslations('Authenticate.resetPassword');
+  const tCommon = useTranslations('Common');
   const isSubmitting = false;
 
   return (
@@ -30,16 +33,14 @@ export function ResetPassword({ setStep }: ResetPasswordProps) {
     >
       <Card>
         <CardHeader>
-          <CardTitle className="text-2xl">Reset password</CardTitle>
-          <CardDescription>
-            Enter your email below to reset your password
-          </CardDescription>
+          <CardTitle className="text-2xl">{tAuth('title')}</CardTitle>
+          <CardDescription>{tAuth('description')}</CardDescription>
         </CardHeader>
         <CardContent>
           <form>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">{tCommon('email')}</Label>
                 <Input
                   id="email"
                   type="email"
@@ -50,10 +51,10 @@ export function ResetPassword({ setStep }: ResetPasswordProps) {
               <Button type="submit" className="w-full" disabled={isSubmitting}>
                 {isSubmitting ? (
                   <>
-                    Resetting password <CircularEasing className="ml-2" />
+                    {tAuth('loadingAction')} <CircularEasing className="ml-2" />
                   </>
                 ) : (
-                  'Reset password'
+                  tAuth('action')
                 )}
               </Button>
             </div>
@@ -65,7 +66,7 @@ export function ResetPassword({ setStep }: ResetPasswordProps) {
               className="p-0 underline underline-offset-4 hover:text-cyan-600"
               onClick={() => setStep('signin')}
             >
-              Go back
+              {tCommon('goBack')}
             </Button>
           </div>
         </CardContent>
