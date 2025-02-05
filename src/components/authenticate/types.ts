@@ -1,1 +1,1 @@
-export type AuthenticationStep = 'signin' | 'signup';
+export type AuthenticationStep = 'signin' | 'signup' | 'resetPassword';

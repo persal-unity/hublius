@@ -1,5 +1,5 @@
-import { ComponentPropsWithoutRef, Dispatch, SetStateAction } from 'react';
-import { cn } from '@/lib/utils/cn';
+import { Dispatch, SetStateAction } from 'react';
+import { motion } from 'motion/react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -13,15 +13,18 @@ import { Label } from '@/components/ui/label';
 import { GoogleIcon } from '../icons';
 import type { AuthenticationStep } from './types';
 
-interface SignInProps extends ComponentPropsWithoutRef<'div'> {
+interface SignInProps {
   setStep: Dispatch<SetStateAction<AuthenticationStep>>;
 }
 
-export function SignIn({ className, setStep, ...props }: SignInProps) {
+export function SignIn({ setStep }: SignInProps) {
   return (
-    <div
-      className={cn('flex w-full max-w-sm flex-col gap-6', className)}
-      {...props}
+    <motion.div
+      className="flex w-full max-w-sm flex-col gap-6"
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 100 }}
+      transition={{ type: 'spring', stiffness: 100 }}
     >
       <Card>
         <CardHeader>
@@ -61,7 +64,12 @@ export function SignIn({ className, setStep, ...props }: SignInProps) {
               <div className="grid gap-2">
                 <div className="flex items-center justify-between">
                   <Label htmlFor="password">Password</Label>
-                  <Button type="button" variant="link" className="p-0">
+                  <Button
+                    type="button"
+                    variant="link"
+                    className="p-0"
+                    onClick={() => setStep('resetPassword')}
+                  >
                     Forgot your password?
                   </Button>
                 </div>
@@ -85,6 +93,6 @@ export function SignIn({ className, setStep, ...props }: SignInProps) {
           </div>
         </CardContent>
       </Card>
-    </div>
+    </motion.div>
   );
 }
