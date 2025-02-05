@@ -3,6 +3,14 @@
     "title": "Здравствуй мир!"
   },
   "LocaleSwitcher": {
+    "title": "Язык",
     "locale": "{locale, select, ua {Українська} ru {Русский} en {English} other {Unknown}}"
+  },
+  "ThemeSwitcher": {
+    "title": "Тема",
+    "theme": "{theme, select, light {Светлая} dark {Тёмная} system {Системная} other {Unknown}}"
+  },
+  "Common": {
+    "logIn": "Войти"
   }
 }

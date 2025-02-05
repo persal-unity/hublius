@@ -3,6 +3,14 @@
     "title": "Hello world!"
   },
   "LocaleSwitcher": {
+    "title": "Language",
     "locale": "{locale, select, ua {Українська} ru {Русский} en {English} other {Unknown}}"
+  },
+  "ThemeSwitcher": {
+    "title": "Theme",
+    "theme": "{theme, select, light {Light} dark {Dark} system {System} other {Unknown}}"
+  },
+  "Common": {
+    "logIn": "Log In"
   }
 }

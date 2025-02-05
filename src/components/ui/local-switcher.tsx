@@ -9,7 +9,10 @@ import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
@@ -40,17 +43,25 @@ export function LocalSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild defaultValue={locale}>
-        <Button variant='outline' size='icon' disabled={isPending}>
-          <Globe className='h-[1.2rem] w-[1.2rem]' />
-          <span className='sr-only'>Toggle local</span>
+        <Button variant="ghost" size="icon" disabled={isPending}>
+          <Globe className="h-[1.2rem] w-[1.2rem]" />
+          <span className="sr-only">Toggle local</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align='end'>
-        {routing.locales.map((cur) => (
-          <DropdownMenuItem key={cur} onClick={() => onSelectChange(cur)}>
-            {t('locale', { locale: cur })}
-          </DropdownMenuItem>
-        ))}
+      <DropdownMenuContent align="end">
+        <DropdownMenuLabel>{t('title')}</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+
+        <DropdownMenuRadioGroup
+          value={locale}
+          onValueChange={(value) => onSelectChange(value as Locale)}
+        >
+          {routing.locales.map((value) => (
+            <DropdownMenuRadioItem key={value} value={value}>
+              {t('locale', { locale: value })}
+            </DropdownMenuRadioItem>
+          ))}
+        </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );

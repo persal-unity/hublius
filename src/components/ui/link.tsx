@@ -7,6 +7,7 @@ type LinkProps = Pick<ButtonProps, 'variant' | 'size'> & {
   ref?: Ref<HTMLAnchorElement>;
 } & {
   href: string;
+  className?: string;
 };
 
 const Link: FC<PropsWithChildren<LinkProps>> = ({

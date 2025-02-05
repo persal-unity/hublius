@@ -4,8 +4,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Locale, routing } from '@/i18n/routing';
 import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/providers/theme-provider';
-import { Header } from '@/components/header';
+import { ThemeProvider } from '@/providers/theme-provider';
 import '../globals.css';
 
 const inter = Inter({
@@ -40,15 +39,7 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.variable} flex min-h-svh flex-col antialiased`}>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute='class'
-            defaultTheme='system'
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Header />
-            {children}
-          </ThemeProvider>
+          <ThemeProvider>{children}</ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

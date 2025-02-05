@@ -58,6 +58,5 @@ const Button: FC<ButtonProps> = ({
     />
   );
 };
-Button.displayName = 'Button';
 
 export { Button, buttonVariants };
