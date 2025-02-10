@@ -1,7 +1,7 @@
 import type { ComponentProps, FC } from 'react';
-import { Slot } from '@radix-ui/react-slot';
 import { ChevronRight, MoreHorizontal } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
+import { Link } from './link';
 
 type BreadcrumbProps = ComponentProps<'nav'> & {
   separator?: React.ReactNode;
@@ -42,22 +42,20 @@ const BreadcrumbItem: FC<BreadcrumbItemProps> = ({
   />
 );
 
-type BreadcrumbLinkProps = ComponentProps<'a'> & {
-  asChild?: boolean;
-};
+type BreadcrumbLinkProps = ComponentProps<typeof Link>;
 
 const BreadcrumbLink: FC<BreadcrumbLinkProps> = ({
-  asChild,
   className,
   ref,
   ...props
 }) => {
-  const Comp = asChild ? Slot : 'a';
-
   return (
-    <Comp
+    <Link
       ref={ref}
-      className={cn('transition-colors hover:text-foreground', className)}
+      className={cn(
+        'h-auto p-0 font-normal text-inherit transition-colors hover:text-foreground',
+        className,
+      )}
       {...props}
     />
   );

@@ -37,6 +37,9 @@
     "signup": "Sign up",
     "email": "Email",
     "password": "Password",
-    "goBack": "Go back"
+    "goBack": "Go back",
+    "dashboard": "Dashboard",
+    "clients": "Clients",
+    "employees": "Employees"
   }
 }

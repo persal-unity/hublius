@@ -13,10 +13,11 @@ type LinkProps = Pick<ButtonProps, 'variant' | 'size'> & {
 const Link: FC<PropsWithChildren<LinkProps>> = ({
   variant = 'link',
   size,
+  className,
   ...props
 }) => {
   return (
-    <Button asChild variant={variant} size={size}>
+    <Button asChild variant={variant} size={size} className={className}>
       <NextLink {...props} />
     </Button>
   );
