@@ -1,11 +1,15 @@
 import { cn } from '@/lib/utils/cn';
 import { ComponentProps, FC } from 'react';
 
-type SidebarInset = ComponentProps<'main'>;
+type SidebarInset = ComponentProps<'div'>;
 
-export const SidebarInset: FC<SidebarInset> = ({ className, ref, ...props }) => {
+export const SidebarInset: FC<SidebarInset> = ({
+  className,
+  ref,
+  ...props
+}) => {
   return (
-    <main
+    <div
       ref={ref}
       className={cn(
         'relative flex min-h-svh flex-1 flex-col bg-background',

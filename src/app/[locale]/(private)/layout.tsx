@@ -12,7 +12,7 @@ export default async function PrivatLayout({
       <AppSidebar />
       <SidebarInset>
         <PrivatHeader />
-        {children}
+        <main className="p-4">{children}</main>
       </SidebarInset>
     </SidebarProvider>
   );

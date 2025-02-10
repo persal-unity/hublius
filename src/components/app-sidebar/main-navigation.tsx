@@ -8,9 +8,11 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from '@/components/ui/sidebar';
 import { Link } from '@/i18n/routing';
 import { VisuallyHidden } from '../ui/visually-hidden';
+import { usePathname } from '@/i18n/routing';
 
 const projects = [
   {
@@ -31,10 +33,17 @@ const projects = [
 ];
 
 export function MainNavigation() {
+  const { toggleSidebar, isMobile } = useSidebar();
   const t = useTranslations('Common');
+  const pathName = usePathname();
+
+  const handleToggle = () => {
+    if (!isMobile) return;
+    toggleSidebar();
+  };
 
   return (
-    <SidebarGroup className="group-data-[collapsible=icon]:hidden">
+    <SidebarGroup>
       <VisuallyHidden>
         <SidebarGroupLabel>Main navigation</SidebarGroupLabel>
       </VisuallyHidden>
@@ -42,8 +51,8 @@ export function MainNavigation() {
       <SidebarMenu>
         {projects.map((item) => (
           <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton asChild>
-              <Link href={item.url}>
+            <SidebarMenuButton asChild isActive={item.url === pathName}>
+              <Link href={item.url} onClick={handleToggle}>
                 <item.icon />
                 <span>{t(item.name)}</span>
               </Link>
