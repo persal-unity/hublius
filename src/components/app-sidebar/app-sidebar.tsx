@@ -12,6 +12,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from '@/components/ui/sidebar';
+import { TooltipProvider } from '../ui/tooltip';
 
 const data = {
   user: {
@@ -41,18 +42,20 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
-      </SidebarHeader>
+      <TooltipProvider>
+        <SidebarHeader>
+          <TeamSwitcher teams={data.teams} />
+        </SidebarHeader>
 
-      <SidebarContent>
-        <MainNavigation />
-      </SidebarContent>
+        <SidebarContent>
+          <MainNavigation />
+        </SidebarContent>
 
-      <SidebarFooter>
-        <NavUser user={data.user} />
-      </SidebarFooter>
-      <SidebarRail />
+        <SidebarFooter>
+          <NavUser user={data.user} />
+        </SidebarFooter>
+        <SidebarRail />
+      </TooltipProvider>
     </Sidebar>
   );
 }

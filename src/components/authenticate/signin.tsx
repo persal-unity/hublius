@@ -13,6 +13,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { GoogleIcon } from '../icons';
 import type { AuthenticationStep } from './types';
+import { useRouter } from '@/i18n/routing';
 
 interface SignInProps {
   setStep: Dispatch<SetStateAction<AuthenticationStep>>;
@@ -21,6 +22,11 @@ interface SignInProps {
 export function SignIn({ setStep }: SignInProps) {
   const tAuth = useTranslations('Authenticate');
   const tCommon = useTranslations('Common');
+  const router = useRouter();
+
+  const formAction = () => {
+    router.push('/dashboard');
+  };
 
   return (
     <motion.div
@@ -52,7 +58,7 @@ export function SignIn({ setStep }: SignInProps) {
             </div>
           </div>
 
-          <form>
+          <form action={formAction}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="email">{tCommon('email')}</Label>

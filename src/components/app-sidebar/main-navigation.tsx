@@ -15,6 +15,11 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import { Link } from '@/i18n/routing';
 import { VisuallyHidden } from '../ui/visually-hidden';
 import { usePathname } from '@/i18n/routing';
@@ -43,7 +48,7 @@ const projects = [
 ];
 
 export function MainNavigation() {
-  const { toggleSidebar, isMobile } = useSidebar();
+  const { toggleSidebar, isMobile, open } = useSidebar();
   const t = useTranslations('Common');
   const pathName = usePathname();
 
@@ -63,7 +68,14 @@ export function MainNavigation() {
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton asChild isActive={pathName.startsWith(item.url)}>
               <Link href={item.url} onClick={handleToggle}>
-                <item.icon />
+                <Tooltip {...(open ? { open: false } : {})}>
+                  <TooltipTrigger>
+                    <item.icon size="16" />
+                  </TooltipTrigger>
+                  <TooltipContent side="right">
+                    <p>Add to library</p>
+                  </TooltipContent>
+                </Tooltip>
                 <span>{t(item.name)}</span>
               </Link>
             </SidebarMenuButton>
