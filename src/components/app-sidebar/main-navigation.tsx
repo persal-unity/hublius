@@ -1,6 +1,11 @@
 'use client';
 
-import { LayoutDashboard, Users, BicepsFlexed } from 'lucide-react';
+import {
+  LayoutDashboard,
+  Users,
+  BicepsFlexed,
+  CalendarDays,
+} from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import {
   SidebarGroup,
@@ -19,6 +24,11 @@ const projects = [
     name: 'dashboard',
     url: '/dashboard',
     icon: LayoutDashboard,
+  },
+  {
+    name: 'calendar',
+    url: '/calendar',
+    icon: CalendarDays,
   },
   {
     name: 'clients',
@@ -51,7 +61,7 @@ export function MainNavigation() {
       <SidebarMenu>
         {projects.map((item) => (
           <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton asChild isActive={item.url === pathName}>
+            <SidebarMenuButton asChild isActive={pathName.startsWith(item.url)}>
               <Link href={item.url} onClick={handleToggle}>
                 <item.icon />
                 <span>{t(item.name)}</span>
