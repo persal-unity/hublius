@@ -19,7 +19,7 @@ export default function AuthLayout({
           </div>
         </div>
       </header>
-      <main className="container mx-auto flex flex-1 items-center justify-center px-4">
+      <main className="container mx-auto flex flex-1 items-center justify-center p-4">
         {children}
       </main>
     </>

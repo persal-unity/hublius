@@ -31,12 +31,28 @@
       "loadingAction": "Resetting password"
     }
   },
+  "Form": {
+    "errorMessages": {
+      "email": "This field must be a valid email",
+      "passwordRequirements": {
+        "minLength": "Password must be at least {length} characters",
+        "minDigit": "Password must contain at least 1 digit",
+        "minLetter": "Password must contain at least 1 letter"
+      },
+      "confirmPassword": "Confirm password field must match the password field",
+      "required": "This field is required"
+    },
+    "description": {
+      "password": "The password must contain at least {length} characters, including at least 1 letter and 1 digit."
+    }
+  },
   "Common": {
     "login": "Login",
     "signin": "Sign in",
     "signup": "Sign up",
     "email": "Email",
     "password": "Password",
+    "confirmPassword": "Confirm your password",
     "goBack": "Go back",
     "dashboard": "Dashboard",
     "clients": "Clients",
