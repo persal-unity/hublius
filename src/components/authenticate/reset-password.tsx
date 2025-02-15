@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
-import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import {
@@ -13,9 +11,10 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { CircularEasing } from '../ui/loader/circular-easing';
 import { AuthenticationStep } from './types';
+import { authenticationSteps } from './constants';
 
 interface ResetPasswordProps {
-  setStep: Dispatch<SetStateAction<AuthenticationStep>>;
+  setStep: (step: AuthenticationStep) => void;
 }
 
 export function ResetPassword({ setStep }: ResetPasswordProps) {
@@ -24,53 +23,45 @@ export function ResetPassword({ setStep }: ResetPasswordProps) {
   const isSubmitting = false;
 
   return (
-    <motion.div
-      className="flex w-full max-w-sm flex-col gap-6"
-      initial={{ opacity: 0, x: 100 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -100 }}
-      transition={{ type: 'spring', stiffness: 100 }}
-    >
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl">{tAuth('title')}</CardTitle>
-          <CardDescription>{tAuth('description')}</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form>
-            <div className="flex flex-col gap-6">
-              <div className="grid gap-2">
-                <Label htmlFor="email">{tCommon('email')}</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="m@example.com"
-                  required
-                />
-              </div>
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? (
-                  <>
-                    {tAuth('loadingAction')} <CircularEasing className="ml-2" />
-                  </>
-                ) : (
-                  tAuth('action')
-                )}
-              </Button>
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-2xl">{tAuth('title')}</CardTitle>
+        <CardDescription>{tAuth('description')}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form>
+          <div className="flex flex-col gap-6">
+            <div className="grid gap-2">
+              <Label htmlFor="email">{tCommon('email')}</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                required
+              />
             </div>
-          </form>
-
-          <div className="mt-4 text-center text-sm">
-            <Button
-              variant="link"
-              className="p-0 underline underline-offset-4 hover:text-cyan-600"
-              onClick={() => setStep('signin')}
-            >
-              {tCommon('goBack')}
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <>
+                  {tAuth('loadingAction')} <CircularEasing className="ml-2" />
+                </>
+              ) : (
+                tAuth('action')
+              )}
             </Button>
           </div>
-        </CardContent>
-      </Card>
-    </motion.div>
+        </form>
+
+        <div className="mt-4 text-center text-sm">
+          <Button
+            variant="link"
+            className="p-0 underline underline-offset-4 hover:text-cyan-600"
+            onClick={() => setStep(authenticationSteps.signin)}
+          >
+            {tCommon('goBack')}
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
   );
 }

@@ -1,1 +1,4 @@
-export type AuthenticationStep = 'signin' | 'signup' | 'resetPassword';
+import { authenticationSteps } from './constants';
+
+export type AuthenticationStep =
+  (typeof authenticationSteps)[keyof typeof authenticationSteps];
